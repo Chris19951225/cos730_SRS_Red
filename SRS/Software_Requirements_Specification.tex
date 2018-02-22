@@ -1,0 +1,200 @@
+\documentclass{article}
+
+\renewcommand{\labelenumii}{\theenumii}
+\renewcommand{\theenumii}{\theenumi.\arabic{enumii}.}
+
+\usepackage{graphicx}
+\graphicspath{{Figures/}}
+
+\title{Software Requirements Specification}
+\date{22 February 2018}
+\author{Team Red}
+
+\begin{document}
+	\pagenumbering{gobble}
+	\maketitle
+	\newpage
+	\tableofcontents
+	\newpage
+	\pagenumbering{arabic}
+	
+	\section{Introduction}
+	\subsection{Purpose}
+	\subsection{Scope}
+	\subsection{Definitions, Acronyms and Abbreviations}
+	\subsection{References}
+	\subsection{Overview}
+	
+	\section{Overall Description}
+	\subsection{Product Perspective}
+	\subsection{Product Function}
+	\subsection{User Characteristics}
+	\subsection{Constraints}
+	\subsection{Assumptions and Dependencies}
+	
+	\section{Specific Requirements}
+	This section expands on the functional requirements of the system. It gives a detailed 	description of the system and all of its use cases.
+	
+	\subsection{External Interface Requirements}
+	
+	\subsection{Functional Requirements}
+	This section includes all functional requirements in detail. It includes all use case diagrams, Actor-System interaction diagrams as well as a traceability matrix.	
+	
+	\subsubsection{Use cases}
+	\begin{enumerate}
+		\item \underline{User Account Management Subsystem}
+			
+		
+	\begin{enumerate}
+		\item Register
+		\begin{enumerate}
+			\item \textbf{Description:} 
+			\item \textbf{Precondition:}
+			\item \textbf{Postcondition:}\newline
+		\end{enumerate}
+		
+		\item Login
+		\begin{enumerate}
+			\item \textbf{Description:} 
+			\item \textbf{Precondition:}
+			\item \textbf{Postcondition:}\newline
+		\end{enumerate}
+		
+		
+		\item Edit Account
+		\begin{enumerate}
+			\item \textbf{Description:} 
+			\item \textbf{Precondition:} 
+			\item \textbf{Postcondition:}\newline
+		\end{enumerate}
+	\end{enumerate}
+	\begin{figure}[h!]
+		\caption{User Account Management Subsystem}	
+	\end{figure}
+	
+	
+	\item \underline{Code Management Subsystem}
+    \begin{enumerate}
+    	\item Read in Code
+		\begin{enumerate}
+			\item \textbf{Description:} 
+			\item \textbf{Precondition:}
+			\item \textbf{Postcondition:}\newline
+		\end{enumerate}
+        
+        \item Check Code
+		\begin{enumerate}
+			\item \textbf{Description:} 
+			\item \textbf{Precondition:}
+			\item \textbf{Postcondition:}\newline
+		\end{enumerate}
+        
+        \item Compile Code
+		\begin{enumerate}
+			\item \textbf{Description:} 
+			\item \textbf{Precondition:}
+			\item \textbf{Postcondition:}\newline
+		\end{enumerate}
+        
+        \item Run Code
+		\begin{enumerate}
+			\item \textbf{Description:} 
+			\item \textbf{Precondition:}
+			\item \textbf{Postcondition:}\newline
+		\end{enumerate}
+        
+        \begin{figure}[h!]
+		\caption{Code Management Subsystem}	
+	\end{figure}
+   \end{enumerate}
+        
+	\item \underline{Hardware Management Subsystem}
+    \begin{enumerate}
+		\item Choose Hardware
+        
+		\begin{enumerate}
+			\item \textbf{Description:} 
+			\item \textbf{Precondition:}
+			\item \textbf{Postcondition:}\newline
+		\end{enumerate}
+        
+        \item Choose Hardware Specifications 
+		\begin{enumerate}
+			\item \textbf{Description:} 
+			\item \textbf{Precondition:}
+			\item \textbf{Postcondition:}\newline
+		\end{enumerate}
+        
+        \item Accept User Hardware
+		\begin{enumerate}
+			\item \textbf{Description:} 
+			\item \textbf{Precondition:}
+			\item \textbf{Postcondition:}\newline
+		\end{enumerate}
+        \end{enumerate}
+        \begin{figure}[h!]
+		\caption{Hardware Management Subsystem}	
+	\end{figure}	
+	
+	\item \underline{Hardware Monitoring Subsystem}
+			\begin{enumerate}
+		\item CPU Monitoring 
+		\begin{enumerate}
+			\item \textbf{Description:} 
+			\item \textbf{Precondition:} 
+			\item \textbf{Postcondition:}\newline
+		\end{enumerate}
+		
+		\item Memory Usage Monitoring 
+		\begin{enumerate}
+			\item \textbf{Description:}
+			\item \textbf{Precondition:} 
+			\item \textbf{Postcondition:} \newline
+		\end{enumerate}
+		
+		\item Power Consumption Monitoring
+		\begin{enumerate}
+			\item \textbf{Description:} 
+			\item \textbf{Precondition:}
+			\item \textbf{Postcondition:}\newline
+		\end{enumerate}
+	\end{enumerate}
+	\begin{figure}[h!]
+		\caption{Hardware Monitoring Subsystem}	
+	\end{figure}	
+	
+	\item \underline{Manager Subsystem}
+    \begin{enumerate}
+		\item Manage Users
+		\begin{enumerate}
+			\item \textbf{Description:} 
+			\item \textbf{Precondition:} 
+			\item \textbf{Postcondition:}\newline
+		\end{enumerate}
+		
+		\item Monitor Users
+		\begin{enumerate}
+			\item \textbf{Description:}
+			\item \textbf{Precondition:} 
+			\item \textbf{Postcondition:} \newline
+		\end{enumerate}
+		
+		\item Manage Hardware
+		\begin{enumerate}
+			\item \textbf{Description:} 
+			\item \textbf{Precondition:}
+			\item \textbf{Postcondition:}\newline
+		\end{enumerate}
+	\end{enumerate}
+	\begin{figure}[h!]
+		\caption{Manager Subsystem}	
+	\end{figure}	
+	\end{enumerate}
+	
+	
+	\subsection{Performance Requirements}
+	\subsection{Design Constraints}
+	\subsection{Software System Attributes}
+	\subsection{Other Requirements}
+
+\end{document}
