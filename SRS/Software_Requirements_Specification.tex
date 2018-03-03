@@ -1,10 +1,13 @@
 \documentclass{article}
 
-\renewcommand{\labelenumii}{\theenumii}
-\renewcommand{\theenumii}{\theenumi.\arabic{enumii}.}
+
+
 
 \usepackage{graphicx}
+\usepackage{float}
 \graphicspath{{Figures/}}
+
+	
 
 \title{Software Requirements Specification}
 \date{22 February 2018}
@@ -12,6 +15,10 @@
 
 \begin{document}
 	\pagenumbering{gobble}
+    \begin{figure}[!t]
+    	\centering
+    	\includegraphics[width=0.8\linewidth]{logo.jpg}
+    \end{figure}
 	\maketitle
 	\newpage
 	\tableofcontents
@@ -20,26 +27,70 @@
 	
 	\section{Introduction}
 	\subsection{Purpose}
+    The software requirements speciﬁcation (SRS) will appropriately outline the functional requirements of the Benchmarking system to ensure that an external party, such as designers, developers and clients, could develop the functionality to a required degree without further instruction. Hence, the functional requirements should be precise and extensive to eliminate deviation from the goals of the system. 
 	\subsection{Scope}
+    The Benchmarking system is a web based application designed to enable performance profiling by providing hardware and hardware monitoring capabilities, then storing and reporting the findings for each service request. The system will monitor and report CPU usage, memory usage, power consumption, heat generation, elapsed time and network usage. The system will be able to provide hardware to run benchmarking requests and will be able to accept hardware that the user provides themselves. The system will minimize side effects that are not a concern of the benchmarking requests. The system will accept user code that may come in different programming languages, confirm its runnable and execute it to generate profiling information. The system will not optimize the code nor correct it. Through using the Benchmarking system, users will be able to see the efficiency of their provided code and how it will run on specific infrastructure. The system will also provide administrative capabilities for specific users, allowing them to manage other users and view their activities. 
 	\subsection{Definitions, Acronyms and Abbreviations}
 	\subsection{References}
+        	\begin{itemize}
+        		\item D.C. Kung, Object Oriented Software Engineering. McGraw Hill, 2014
+        	\end{itemize}
 	\subsection{Overview}
-	
+	The SRS will help give a detailed representation of the functional requirements and how the sub-elements of the system interact with one another to achieve the Benchmarking system's purpose.
+
 	\section{Overall Description}
+    	
 	\subsection{Product Perspective}
+    The main system will be a server on the University of Pretoria (UP) campus and will be connected to a database that stores profiling information of previously executed benchmarking requests. Users will log on to the web-based application through a browser and provide code to the Benchmarking system. They will then be able to choose between providing their own hardware for monitoring or use existing hardware provided by the system. They then have to choose which attributes are to be monitored. They will then execute the benchmarking request and view it real-time and/or view the profiling report generated at the end of the benchmarking request. Hence users will be able to view their code's performance and how it compares to other versions or other code. Administrative users will be able to log on to the Benchmarking system and view the activities of non-managerial users, as well as manage their accounts.   
 	\subsection{Product Function}
+    
+    \begin{itemize}
+        		\item The service will enable code and/or hardware based performance profiling for given code samples or executables 
+                \item The system will provide profiling information real-time and post benchmark request execution
+                \item The system will provide access to profiling information of previously run benchmarking requests
+                \item The system will allow administrative users to manage existing normal users and the system itself 
+              	\item The system will allow users to provide their own hardware for benchmarking requests 
+                \item The system will allow users to export and/or share profiling information
+                \item The system will allow users to choose hardware specifications for each benchmarking request
+    \end{itemize}
+    
 	\subsection{User Characteristics}
+     \begin{itemize}       		
+                \item Hardware seeking users: These are your average users. They will have a basic knowledge of computers and computer hardware. These will be the users that provide code and use existing hardware provided by the Benchmarking system. They will have normal user privileges, thus have control only over their own account. 
+                \item Hardware providing users: These users have a higher knowledge of computers and computer hardware than the usual hardware seeking user. These will be the users that provide their own hardware for benchmarking requests. They will have normal user privileges, thus have control only over their own account. 
+                \item Managerial users: These are users with elevated account privileges. They have managerial skills and a basic knowledge of computers and computer hardware. Managerial users will be able to monitor normal user activities as well as manage existing normal user accounts.
+                \item Administrator: These are back-end users. They have access to the Benchmarking system's existing hardware as well managerial capabilities over existing normal and managerial users. They have expert knowledge of computers and computer hardware. They have full control over system resources. 
+    \end{itemize}
 	\subsection{Constraints}
+    This section elaborates on the limitations of the options that are available when developing the Benchmarking system 
+    \begin{itemize}
+    	\item The system is a web-based application and therefore must run on a device that has browser support. 
+        \item The system runs on a remote server therefore an internet connection is required in order to communicate with the Benchmarking system. 
+        \item The system may not report real-time accurately, depending on the network connection strength.
+        \item The system's profiling report information is limited by the existing hardware in the system as it can not provide information for hardware it can not monitor.
+    \end{itemize}
 	\subsection{Assumptions and Dependencies}
-	
+	All assumptions relate to the user and the device they are using. It is assumed that the user seeking to use the Benchmarking system has basic knowledge of how to use an IT device with browser support. It is assumed that the device the user is using has browser support and can connect to the internet.   
 	\section{Specific Requirements}
 	This section expands on the functional requirements of the system. It gives a detailed 	description of the system and all of its use cases.
 	
 	\subsection{External Interface Requirements}
 	
 	\subsection{Functional Requirements}
-	This section includes all functional requirements in detail. It includes all use case diagrams, Actor-System interaction diagrams as well as a traceability matrix.	
+	This section will elaborate on all functional requirements in the system. It includes all Use Case diagrams, Actor-System interaction diagrams and Traceability matrices.	
 	
+    \subsubsection{High-level Requirements}
+    	\begin{itemize}
+        		\item FR-1: The system should provide a web interface for users to request and specify the benchmarking services they need.
+                \item FR-2: The system should be able to execute benchmarking requests on isolated machines. 
+                \item FR-3: The system should be able to minimize side effects that are not a concern of a benchmark request. 
+                \item FR-4: The system should be able to analyze a variety of performance attributes. 
+                \item FR-5: The system should be able to accept hardware from users and run benchmarking requests on them. 
+                \item FR-6: The system should be able to accept a variety of modern programming languages. 
+                \item FR-7: The system should be able to generate profiling information for benchmarking requests. 
+                \item FR-8: The system should allow managers to manage users and profiling nodes. 
+        \end{itemize}
+            
 	\subsubsection{Use cases}
 	\begin{enumerate}
 		\item \underline{User Account Management Subsystem}
@@ -68,9 +119,6 @@
 			\item \textbf{Postcondition:}\newline
 		\end{enumerate}
 	\end{enumerate}
-	\begin{figure}[h!]
-		\caption{User Account Management Subsystem}	
-	\end{figure}
 	
 	
 	\item \underline{Code Management Subsystem}
@@ -103,9 +151,6 @@
 			\item \textbf{Postcondition:}\newline
 		\end{enumerate}
         
-        \begin{figure}[h!]
-		\caption{Code Management Subsystem}	
-	\end{figure}
    \end{enumerate}
         
 	\item \underline{Hardware Management Subsystem}
@@ -132,34 +177,55 @@
 			\item \textbf{Postcondition:}\newline
 		\end{enumerate}
         \end{enumerate}
-        \begin{figure}[h!]
-		\caption{Hardware Management Subsystem}	
-	\end{figure}	
 	
 	\item \underline{Hardware Monitoring Subsystem}
-			\begin{enumerate}
+		\begin{enumerate}
 		\item CPU Monitoring 
 		\begin{enumerate}
-			\item \textbf{Description:} 
-			\item \textbf{Precondition:} 
-			\item \textbf{Postcondition:}\newline
+			\item \textbf{Description:} The Hardware Monitoring subsystem should be able to analyze CPU usage for each benchmarking request. It should be able to report that usage in real-time and as profiling information. It should also be able to report hardware failure.
+			\item \textbf{Precondition:} The user must have an active user account. The user must have specified a CPU for their benchmarking request through the Hardware Management subsystem. The user must also be on the correct page of the interface to view the real-time CPU usage and a benchmark request must be running.
+			\item \textbf{Postcondition:} CPU usage is reported to the user interface in real time and stored in a report for the user to view at a later time. If no CPU was specified or another error occurred, then the appropriate error message is displayed.\newline
 		\end{enumerate}
 		
 		\item Memory Usage Monitoring 
 		\begin{enumerate}
-			\item \textbf{Description:}
-			\item \textbf{Precondition:} 
-			\item \textbf{Postcondition:} \newline
+			\item \textbf{Description:} The Hardware Monitoring subsystem should be able to analyze both memory and storage usage for each benchmarking request. It should be able to report the usage in real-time and as profiling information. It should also be able to report hardware failure.
+			\item \textbf{Precondition:} The user must have an active user account. The user must have specified memory and storage for their benchmarking request. The user must also be on the correct page of the user interface to view real-time memory usage and a benchmark request must be running.
+			\item \textbf{Postcondition:} Memory usage is reported in real-time and stored in a report for the user to view at a later time. If no memory or storage is specified or another error occurred, then the appropriate error message is displayed.\newline
 		\end{enumerate}
 		
 		\item Power Consumption Monitoring
 		\begin{enumerate}
-			\item \textbf{Description:} 
-			\item \textbf{Precondition:}
-			\item \textbf{Postcondition:}\newline
+			\item \textbf{Description:} The Hardware Monitoring subsystem should be able to analyze power consumption for each benchmarking request. It should be able to report the consumption in real-time and as profiling information. It should also be able to report hardware failure.
+			\item \textbf{Precondition:} The user must have an active user account. The user must specify that they would like power consumption to be recorded. The user must also be on the correct page of the interface to view real-time power consumption and a benchmark request must be running. The machine running the benchmark must have the appropriate monitoring tools.
+			\item \textbf{Postcondition:} Power consumption is reported in real-time and stored in a report for the user to view later. If the user does not specify that they would like power consumption to be reported, then no information about power consumption is displayed or stored.\newline
 		\end{enumerate}
+        
+        \item Heat Generation Monitoring
+		\begin{enumerate} 
+			\item \textbf{Description:} The Hardware Monitoring subsystem should be able to analyze heat generation from the machine that a user's benchmarking request is being run on. It should be able to report that heat generation both in real-time and as profiling information. It should also be able to report hardware failure.
+			\item \textbf{Precondition:} The user must have an active user account. The user must specify that they would like heat generation to be recorded. The machine running the benchmark must have the appropriate sensors. The user must also be on the correct page of the interface to view real-time heat generation and a benchmark request must be running. 
+			\item \textbf{Postcondition:} Heat generation is reported in real-time and stored in a report for the user to view later. If the user does not specify that they would like heat generation to be reported, then no information about heat generation is displayed or stored.\newline
+		\end{enumerate}
+        
+        \item Elapsed Time Monitoring
+		\begin{enumerate}
+			\item \textbf{Description:} The Hardware Monitoring subsystem should be able to report the elapsed time of a benchmarking request both in real-time and as profiling information. It should also be able to report hardware failure.
+			\item \textbf{Precondition:} The user must have an active user account. The user must be on the correct page of the interface to view real-time elapsed time and a benchmark request must be running. 
+			\item \textbf{Postcondition:} Elapsed time is always reported in real-time and stored in a report for the user to view later. If the user does not specify that they would like elapsed time to be reported, then no information about elapsed time is displayed or stored.\newline
+		\end{enumerate}
+        
+        \item Network Monitoring
+		\begin{enumerate}
+			\item \textbf{Description:} The Hardware Monitoring subsystem should be able to report network usage of benchmarking requests both in real-time and as profiling information. It should also be able to report hardware failure.
+			\item \textbf{Precondition:} The user must have an active user account. The user must provide code that requires a network connection. The machine running the benchmark must have the appropriate network connection. The user must be on the correct page of the interface to view the real-time usage and a benchmark request must be running.
+			\item \textbf{Postcondition:} Network usage is reported in real-time and stored in a report for the user to view later. If the user does not specify that they would like network usage to be reported, then no information about network usage is displayed or stored.\newline
+		\end{enumerate}
+        
 	\end{enumerate}
-	\begin{figure}[h!]
+	\begin{figure}[!ht]
+    	\includegraphics[width=0.8\linewidth]{use_case_HM.jpg}
+        \centering
 		\caption{Hardware Monitoring Subsystem}	
 	\end{figure}	
 	
@@ -186,12 +252,63 @@
 			\item \textbf{Postcondition:}\newline
 		\end{enumerate}
 	\end{enumerate}
-	\begin{figure}[h!]
-		\caption{Manager Subsystem}	
-	\end{figure}	
 	\end{enumerate}
 	
-	
+	\subsection{Actor-System Interaction Modeling}
+    	\begin{enumerate}
+    		\item{Hardware Monitoring Subsystem}
+        		\begin{enumerate}
+                    \item{CPU Usage Monitoring}
+                    \begin{figure}[!ht]
+                    	\centering
+                        \includegraphics[width=1\linewidth]{CPU_usage.JPG}	
+                        \newline
+                        \newline
+                    \end{figure}
+                    
+                    \item{Memory Usage Monitoring}
+                    \begin{figure}[H]
+                    	\centering
+                        \includegraphics[width=1\linewidth]{memory_usage.JPG}
+                        \newline
+                        \newline
+                    \end{figure}
+                    
+                    
+                    \item{Power Consumption Monitoring}
+                    \begin{figure}[H]
+                    	\centering
+                        \includegraphics[width=1\linewidth]{power_consumption.JPG}
+                        \newline
+                        \newline
+                    \end{figure}
+                    
+                    \item{Heat Generation Monitoring}
+                    \begin{figure}[H]
+                    	\centering
+                        \includegraphics[width=1\linewidth]{heat_generation.JPG}
+                        \newline
+                        \newline
+                    \end{figure}
+                    
+                    \item{Elapsed Time Monitoring}
+                    \begin{figure}[H]
+                    	\centering
+                        \includegraphics[width=1\linewidth]{elapsed_time.JPG}
+						\newline
+                        \newline
+                    \end{figure}
+                    
+                    \item{Network Usage Monitoring}
+                    \begin{figure}[H]
+                    	\centering
+                        \includegraphics[width=1\linewidth]{network_usage.JPG}
+                        \newline
+                        \newline
+                    \end{figure}
+                    
+            	\end{enumerate}
+        \end{enumerate}
 	\subsection{Performance Requirements}
 	\subsection{Design Constraints}
 	\subsection{Software System Attributes}
