@@ -82,13 +82,10 @@
     \subsubsection{High-level Requirements}
     	\begin{itemize}
         		\item FR-1: The system should provide a web interface for users to request and specify the benchmarking services they need.
-                \item FR-2: The system should be able to execute benchmarking requests on isolated machines. 
-                \item FR-3: The system should be able to minimize side effects that are not a concern of a benchmark request. 
-                \item FR-4: The system should be able to analyze a variety of performance attributes. 
-                \item FR-5: The system should be able to accept hardware from users and run benchmarking requests on them. 
-                \item FR-6: The system should be able to accept a variety of modern programming languages. 
-                \item FR-7: The system should be able to generate profiling information for benchmarking requests. 
-                \item FR-8: The system should allow managers to manage users and profiling nodes. 
+                \item FR-2: The system should be able to execute benchmarking requests on isolated machines.
+                \item FR-3: The system should be able to analyze a variety of performance attributes. 
+                \item FR-4: The system should allow managers to manage users and profiling nodes. 
+                \item FR-5: The system should allow users to register, login and edit user accounts  
         \end{itemize}
             
 	\subsubsection{Use cases}
@@ -99,24 +96,27 @@
 	\begin{enumerate}
 		\item Register
 		\begin{enumerate}
-			\item \textbf{Description:} 
-			\item \textbf{Precondition:}
-			\item \textbf{Postcondition:}\newline
+			\item \textbf{Description:} The register functionality allows users the capability to self-register on the system. These users can be only be a basic type of user with basic user roles, other types of users with advanced roles can only be registered on the User Account Management Subsystem.
+			\item \textbf{Precondition:}No other user exists on the system with same email address. The email address is valid.
+			\item \textbf{Postcondition:}User receives registration confirmation\newline
 		\end{enumerate}
 		
 		\item Login
 		\begin{enumerate}
-			\item \textbf{Description:} 
-			\item \textbf{Precondition:}
-			\item \textbf{Postcondition:}\newline
+			\item \textbf{Description:}  The login functionality allows registered users to log in to the system, only logged in users can use the system.
+			\item \textbf{Precondition:}Valid credentials of a registered user are submitted.
+			\item \textbf{Postcondition:} User successfully logged into the system. User logged in event successfully logged on the system.\newline
 		\end{enumerate}
 		
 		
 		\item Edit Account
 		\begin{enumerate}
-			\item \textbf{Description:} 
-			\item \textbf{Precondition:} 
-			\item \textbf{Postcondition:}\newline
+			\item \textbf{Description:}The edit account functionality is offers registered users the capability to modify
+their attributes and/or properties on the system.
+			\item \textbf{Precondition:} User is logged in. New user information does not contravene any attribute/property uniqueness constraints on the system. If the update is/includes a display picture the file type of the new display picture is supported 
+
+			\item \textbf{Postcondition:} User successfully updated on the system and changes are immediately reflected. User update event successfully logged on the system.
+\newline
 		\end{enumerate}
 	\end{enumerate}
 	
@@ -155,28 +155,54 @@
         
 	\item \underline{Hardware Management Subsystem}
     \begin{enumerate}
-		\item Choose Hardware
-        
+		\item Add Computer
 		\begin{enumerate}
-			\item \textbf{Description:} 
-			\item \textbf{Precondition:}
-			\item \textbf{Postcondition:}\newline
+			\item \textbf{Description:} The system should allow a user subscribed to the benchmarking service to add a computer that will be usable by the individual to perform a benchmark. 
+			\item \textbf{Precondition:} The user must be an active subscriber to the benchmarking service as well as have access to the internet.
+			\item \textbf{Postcondition:} The system accepts the newly added computer and makes it available to the individual for benchmarking.\newline
 		\end{enumerate}
         
-        \item Choose Hardware Specifications 
+        \item Add Computer Component 
 		\begin{enumerate}
-			\item \textbf{Description:} 
-			\item \textbf{Precondition:}
-			\item \textbf{Postcondition:}\newline
+			\item \textbf{Description:} The system should allow the user to add new computer components to the already existing	computer on the benchmarking service, this can be characterized as adding more ram to a computer or adding a Bluetooth adapter to a computer.
+			\item \textbf{Precondition:} The user must be an active subscriber to the benchmarking service as well as have access to the internet.
+			\item \textbf{Postcondition:} The system accepts the newly added compute component and makes it available to the individual for benchmarking.\newline
 		\end{enumerate}
         
-        \item Accept User Hardware
+        \item Remove Computer
 		\begin{enumerate}
-			\item \textbf{Description:} 
-			\item \textbf{Precondition:}
-			\item \textbf{Postcondition:}\newline
+			\item \textbf{Description:} The system should allow a user to remove a computer they added to the benchmarking service.
+			\item \textbf{Precondition:} The user must be an active subscriber to the benchmarking service as well as have access to the internet.
+			\item \textbf{Postcondition:} The service removes the relevant computer from the benchmarking service.\newline
+		\end{enumerate}
+        
+        \item Remove Computer Component
+		\begin{enumerate}
+			\item \textbf{Description:} The system should allow a user to remove a computer component they added from the benchmark service.
+			\item \textbf{Precondition:} The user must be an active subscriber to the benchmarking service as well as have access to the internet.
+			\item \textbf{Postcondition:} The system removes the relevant computer component from the benchmarking service.\newline
+		\end{enumerate}
+        
+        \item Request Hardware
+		\begin{enumerate}
+			\item \textbf{Description:} The system should allow the user to make a request to use hardware available on the service, or for additional resources, these additional resources can be computers or computer components, a request can also be for a hardware configuration change.
+			\item \textbf{Precondition:} The user must be an active subscriber to the benchmarking service as well as have access to the internet.
+			\item \textbf{Postcondition:} The system accepts the request and the alerts the relevant parties of the hardware request. The user is then put on a queue if the resources is currently unavailable and is alerted once available. \newline
+		\end{enumerate}
+        
+        \item Test/Verify Hardware
+		\begin{enumerate}
+			\item \textbf{Description:} The system should allow the users to test and verify that the hardware is functioning as intended and that the hardware is available.
+			\item \textbf{Precondition:} The user must be an active subscriber to the benchmarking service as well as have access to the internet.
+			\item \textbf{Postcondition:} The system runs checks for hardware failures as well as the availability of the hardware; the user is then alerted of the findings.\newline
 		\end{enumerate}
         \end{enumerate}
+        
+        \begin{figure}[!ht]
+    	\includegraphics[width=0.8\linewidth]{HM_UC.jpg}
+        \centering
+		\caption{Hardware Management Subsystem}	
+	\end{figure}	
 	
 	\item \underline{Hardware Monitoring Subsystem}
 		\begin{enumerate}
@@ -223,7 +249,7 @@
 		\end{enumerate}
         
 	\end{enumerate}
-	\begin{figure}[!ht]
+	\begin{figure}[H]
     	\includegraphics[width=0.8\linewidth]{use_case_HM.jpg}
         \centering
 		\caption{Hardware Monitoring Subsystem}	
@@ -256,10 +282,90 @@
 	
 	\subsection{Actor-System Interaction Modeling}
     	\begin{enumerate}
+         \item{User Account Management Subsystem}
+        		\begin{enumerate}
+                    \item{Login}
+                    \begin{figure}[!ht]
+                    	\centering
+                        \includegraphics[width=1\linewidth]{UM_1.JPG}	
+                        \newline
+                        \newline
+                    \end{figure}
+                    
+                    \item{Register}
+                    \begin{figure}[H]
+                    	\centering
+                        \includegraphics[width=1\linewidth]{UM_2.JPG}
+                        \newline
+                        \newline
+                    \end{figure}
+                    
+                    
+                    \item{Edit Account}
+                    \begin{figure}[H]
+                    	\centering
+                        \includegraphics[width=1\linewidth]{UM_3.JPG}
+                        \newline
+                        \newline
+                    \end{figure}
+                 \end{enumerate}
+                 
+            \item{Hardware Management Subsystem}
+        		\begin{enumerate}
+                    \item{Add Computer}
+                    \begin{figure}[H]
+                    	\centering
+                        \includegraphics[width=1\linewidth]{HM_1.JPG}	
+                        \newline
+                        \newline
+                    \end{figure}
+                    
+                    \item{Add Computer Component}
+                    \begin{figure}[H]
+                    	\centering
+                        \includegraphics[width=1\linewidth]{HM_2.JPG}
+                        \newline
+                        \newline
+                    \end{figure}
+                    
+                    
+                    \item{Remove Computer}
+                    \begin{figure}[H]
+                    	\centering
+                        \includegraphics[width=1\linewidth]{HM_3.JPG}
+                        \newline
+                        \newline
+                    \end{figure}
+                    
+                     \item{Remove Computer Component}
+                    \begin{figure}[H]
+                    	\centering
+                        \includegraphics[width=1\linewidth]{HM_4.JPG}
+                        \newline
+                        \newline
+                    \end{figure}
+                    
+                     \item{Request Hardware}
+                    \begin{figure}[H]
+                    	\centering
+                        \includegraphics[width=1\linewidth]{HM_5.JPG}
+                        \newline
+                        \newline
+                    \end{figure}
+                    
+                    \item{Test/Verify Hardware}
+                    \begin{figure}[H]
+                    	\centering
+                        \includegraphics[width=1\linewidth]{HM_6.JPG}
+                        \newline
+                        \newline
+                    \end{figure}
+                 \end{enumerate}
+                 
     		\item{Hardware Monitoring Subsystem}
         		\begin{enumerate}
                     \item{CPU Usage Monitoring}
-                    \begin{figure}[!ht]
+                    \begin{figure}[H]
                     	\centering
                         \includegraphics[width=1\linewidth]{CPU_usage.JPG}	
                         \newline
@@ -309,9 +415,5 @@
                     
             	\end{enumerate}
         \end{enumerate}
-	\subsection{Performance Requirements}
-	\subsection{Design Constraints}
-	\subsection{Software System Attributes}
-	\subsection{Other Requirements}
 
 \end{document}
